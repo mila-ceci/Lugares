@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.lugares_j.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_lugar"
+        android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/addLugarFragment"

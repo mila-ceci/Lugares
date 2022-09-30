@@ -12,9 +12,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/msg_nombre"
-        android:inputType="textPersonName"
-        android:textColorHint="#757575"
-        android:autofillHints="" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etCorreo"
@@ -22,9 +20,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/msg_correo"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/etTelefono"
@@ -32,9 +28,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/msg_telefono"
-        android:inputType="phone"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+        android:inputType="phone" />
 
     <EditText
         android:id="@+id/etSitioweb"
@@ -42,9 +36,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/msg_web"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:autofillHints="" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btAdd"
