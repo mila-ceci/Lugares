@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddLugarFragment" >
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/msg_nombre"
+        android:inputType="textPersonName"
+        android:textColorHint="#757575"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/etCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/msg_correo"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/msg_telefono"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/etSitioweb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/msg_web"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add_lugar" />
+</LinearLayout>
