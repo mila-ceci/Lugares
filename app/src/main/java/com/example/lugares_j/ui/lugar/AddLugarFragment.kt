@@ -1,6 +1,11 @@
 package com.example.lugares_j.ui.lugar
 
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.Manifest
+import android.location.Location
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +18,8 @@ import com.example.lugares_j.databinding.FragmentAddLugarBinding
 import com.example.lugares_j.databinding.FragmentLugarBinding
 import com.example.lugares_j.model.Lugar
 import com.example.lugares_j.viewmodel.LugarViewModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,8 +45,39 @@ class AddLugarFragment : Fragment() {
 
         binding.btAdd.setOnClickListener {addLugar()}
 
+        ActivaGPS()
         return binding.root
 
+    }
+
+    private fun ActivaGPS() {
+        if(requireActivity()
+                .checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED
+            && requireActivity()
+                .checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) !=
+                    PackageManager.PERMISSION_GRANTED){
+            requireActivity()
+                .requestPermissions(
+                    arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION), 105)
+        }else{
+            //si tiene permisos se busca la ubicacion gps
+            val ubicacion:FusedLocationProviderClient =
+                LocationServices.getFusedLocationProviderClient(requireContext())
+            ubicacion.lastLocation.addOnSuccessListener {
+                location: Location? ->
+                if(location != null){
+                    binding.tvLatitud.text ="${location.latitude}"
+                    binding.tvLongitud.text ="${location.longitude}"
+                    binding.tvAltura.text ="${location.altitude}"
+                }else{
+                    binding.tvLatitud.text   = "0.0"
+                    binding.tvLongitud.text  ="0.0"
+                    binding.tvAltura.text    ="0,0"
+                }
+            }
+        }
     }
 
     private fun addLugar() {
@@ -48,7 +86,15 @@ class AddLugarFragment : Fragment() {
             val telefono = binding.etTelefono.text.toString()
             val web = binding.etSitioweb.text.toString()
             val correo = binding.etCorreo.text.toString()
-            val lugar = Lugar(id, nombre, correo, telefono, web, 0.0, 0.0, 0.0, "", "")
+            val latitud = binding.etCorreo.text.toString().toDouble()
+            val altura = binding.etCorreo.text.toString().toDouble()
+            val longitud = binding.etCorreo.text.toString().toDouble()
+
+
+
+            val lugar = Lugar("", nombre, correo, telefono, web, latitud, altura, longitud ,"", "")
+
+
 
             //se guarda el nuevo lugar
             lugarViewModel.saveLugar(lugar)
@@ -68,3 +114,4 @@ class AddLugarFragment : Fragment() {
 
 
 }
+

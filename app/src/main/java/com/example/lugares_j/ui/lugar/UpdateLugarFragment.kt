@@ -1,6 +1,7 @@
 package com.example.lugares_j.ui.lugar
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -84,7 +85,27 @@ class UpdateLugarFragment : Fragment() {
     }
 
     private fun llamarLugar() {
-        TODO("Not yet implemented")
+        val valor = binding.etTelefono.text.toString()
+        if(valor.isNotEmpty()){ // si el correo tiene algo, se intenta enviar el correo
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:$valor")
+            if(requireActivity()
+                    .checkSelfPermission(android.Manifest.permission.CALL_PHONE) !=
+                PackageManager.PERMISSION_GRANTED){
+                requireActivity()
+                    .requestPermissions(
+                        arrayOf(android.Manifest.permission.CALL_PHONE), 105)
+            }else{
+                //si tiene el permiso de hacer la llamda
+                requireActivity().startActivity(intent)
+            }
+
+        } else { // no hay info, no se puede realizar la acción
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.msg_data), Toast.LENGTH_LONG
+            ).show()
+        }
     }
 
     private fun enviarWhatsApp() {
@@ -120,7 +141,17 @@ class UpdateLugarFragment : Fragment() {
     }
 
     private fun verEnMapa() {
-        TODO("Not yet implemented")
+        val latitud = binding.tvLatitud.text.toString().toDouble()
+        val longitud = binding.tvLongitud.text.toString().toDouble()
+
+        if(latitud.isFinite() && longitud.isFinite()){ // si el sitio web tiene algo, se intenta enviar el correo
+            val uri = "geo:$latitud, $longitud?z18"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            startActivity(intent)
+        } else{ // no hay info, no se puede realizar la acción
+            Toast.makeText(requireContext(),
+                getString(R.string.msg_data), Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun deleteLugar() {

@@ -18,6 +18,14 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.Lugares_j.PopupOverlay" />
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4CAF50"
+            android:text="TextView"
+            android:textColor="#B81E1E" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_principal" />

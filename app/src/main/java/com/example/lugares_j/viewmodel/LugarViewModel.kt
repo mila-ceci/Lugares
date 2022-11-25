@@ -2,7 +2,7 @@ package com.example.lugares_j.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.lugares_j.data.LugarDATABASE
+import com.example.lugares_j.data.LugarDAO
 import com.example.lugares_j.model.Lugar
 import com.example.lugares_j.repository.LugarRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,14 +11,9 @@ import kotlinx.coroutines.launch
 class LugarViewModel(application : Application) : AndroidViewModel(application)
 {
 
-    private val lugarRepository : LugarRepository
-    val getLugares:  LiveData<List<Lugar>>
+    private val lugarRepository : LugarRepository = LugarRepository(LugarDAO())
+    val getLugares:  MutableLiveData<List<Lugar>> = lugarRepository.getLugares
 
-    init {
-        val lugarDao = LugarDATABASE.getDatabse(application).LugarDAO()
-        lugarRepository = LugarRepository(lugarDao)
-        getLugares = lugarRepository.getLugares
-    }
 
     fun saveLugar(lugar: Lugar){
         viewModelScope.launch(Dispatchers.IO){
