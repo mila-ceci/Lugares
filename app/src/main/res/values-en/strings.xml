@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lugares_j</string>
-    <string name="tv_correo">Correo</string>
-    <string name="tv_clave">Contraseña</string>
+    <string name="tv_correo">Email</string>
+    <string name="tv_clave">Password</string>
     <string name="title_activity_principal">Principal</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,19 +11,19 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_lugar">Lugares</string>
+    <string name="menu_lugar">Places</string>
     <string name="menu_gallery">Gallery</string>
 
 
-    <string name="msg_nombre">Nombre del Lugar</string>
+    <string name="msg_nombre">Name</string>
     <string name="msg_correo">Email:</string>
-    <string name="msg_telefono">Telefono:</string>
-    <string name="msg_web">Sitio web:</string>
-    <string name="btn_add_lugar">Agregar</string>
-    <string name="msg_lugar_added">Agregado</string>
-    <string name="msg_data">faltan datos</string>
-    <string name="bt_update_lugar">actualizar</string>
-    <string name="msg_lugar_update">actualizado</string>
+    <string name="msg_telefono">Phone:</string>
+    <string name="msg_web">Web Site:</string>
+    <string name="btn_add_lugar">Add place</string>
+    <string name="msg_lugar_added">Added place</string>
+    <string name="msg_data">Missing data</string>
+    <string name="bt_update_lugar">update</string>
+    <string name="msg_lugar_update">place updated</string>
     <string name="bt_delete_lugar">Eliminar Lugar</string>
     <string name="msg_lugar_delete">Lugar eliminado</string>
     <string name="msg_pregunta_delete">Esta seguro de eliminar?</string>
@@ -57,8 +58,4 @@
     <string name="msg_subiendo_imagen">Subiendo imagen</string>
     <string name="todo">todo</string>
     <string name="msg_subiendo_lugar">Subiendo el lugar</string>
-    <string name="default_web_client_idr"
-        translatable="false">281972880637-4hvfs7jgau03dhhr9kqn0vdu45l7jv7b.apps.googleusercontent.com</string>
-
-
 </resources>
